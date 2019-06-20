@@ -28,6 +28,7 @@ abstract class CalendarPagerAdapter<V extends CalendarPagerView> extends PagerAd
   @NonNull private TitleFormatter titleFormatter = TitleFormatter.DEFAULT;
   private Integer color = null;
   private Integer dateTextAppearance = null;
+  private Integer weekendDateTextAppearance = null;
   private Integer weekDayTextAppearance = null;
   @ShowOtherDates
   private int showOtherDates = MaterialCalendarView.SHOW_DEFAULTS;
@@ -84,6 +85,7 @@ abstract class CalendarPagerAdapter<V extends CalendarPagerView> extends PagerAd
     newAdapter.titleFormatter = titleFormatter;
     newAdapter.color = color;
     newAdapter.dateTextAppearance = dateTextAppearance;
+    newAdapter.weekendDateTextAppearance = weekendDateTextAppearance;
     newAdapter.weekDayTextAppearance = weekDayTextAppearance;
     newAdapter.showOtherDates = showOtherDates;
     newAdapter.minDate = minDate;
@@ -153,6 +155,9 @@ abstract class CalendarPagerAdapter<V extends CalendarPagerView> extends PagerAd
     if (dateTextAppearance != null) {
       pagerView.setDateTextAppearance(dateTextAppearance);
     }
+    if (weekendDateTextAppearance != null) {
+      pagerView.setWeekendDateTextAppearance(weekendDateTextAppearance);
+    }
     if (weekDayTextAppearance != null) {
       pagerView.setWeekDayTextAppearance(weekDayTextAppearance);
     }
@@ -215,6 +220,16 @@ abstract class CalendarPagerAdapter<V extends CalendarPagerView> extends PagerAd
     for (V pagerView : currentViews) {
       pagerView.setDateTextAppearance(taId);
     }
+  }
+
+  public void setWeekendDateTextAppearance(int taId) {
+      if (taId == 0) {
+          return;
+      }
+      this.weekendDateTextAppearance = taId;
+      for (V pagerView : currentViews) {
+          pagerView.setWeekendDateTextAppearance(taId);
+      }
   }
 
   public void setShowOtherDates(@ShowOtherDates int showFlags) {
@@ -370,6 +385,10 @@ abstract class CalendarPagerAdapter<V extends CalendarPagerView> extends PagerAd
 
   protected int getDateTextAppearance() {
     return dateTextAppearance == null ? 0 : dateTextAppearance;
+  }
+
+  protected int getWeekendDateTextAppearance() {
+    return weekendDateTextAppearance == null ? 0 : weekendDateTextAppearance;
   }
 
   protected int getWeekDayTextAppearance() {

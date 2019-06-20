@@ -4,6 +4,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+
+import org.threeten.bp.DayOfWeek;
 import org.threeten.bp.LocalDate;
 
 /**
@@ -91,6 +93,24 @@ public final class CalendarDay implements Parcelable {
    */
   public int getDay() {
     return date.getDayOfMonth();
+  }
+
+  /**
+   * Whether the date is a Saturday.
+   *
+   * @return true if the date is {@link DayOfWeek} SATURDAY.
+   */
+  public boolean isSaturday() {
+    return date.getDayOfWeek() == DayOfWeek.SATURDAY;
+  }
+
+  /**
+   * Whether the date is a Sunday.
+   *
+   * @return true if the date is {@link DayOfWeek} SUNDAY.
+   */
+  public boolean isSunday() {
+    return date.getDayOfWeek() == DayOfWeek.SUNDAY;
   }
 
   /**

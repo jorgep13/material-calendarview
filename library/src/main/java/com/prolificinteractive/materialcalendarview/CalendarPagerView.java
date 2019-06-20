@@ -120,7 +120,17 @@ abstract class CalendarPagerView extends ViewGroup
 
   public void setDateTextAppearance(int taId) {
     for (DayView dayView : dayViews) {
-      dayView.setTextAppearance(getContext(), taId);
+      if (!dayView.getDate().isSunday() && !dayView.getDate().isSaturday()) {
+        dayView.setTextAppearance(getContext(), taId);
+      }
+    }
+  }
+
+  public void setWeekendDateTextAppearance(int taId) {
+    for (DayView dayView : dayViews) {
+      if (dayView.getDate().isSunday() || dayView.getDate().isSaturday()) {
+        dayView.setTextAppearance(getContext(), taId);
+      }
     }
   }
 

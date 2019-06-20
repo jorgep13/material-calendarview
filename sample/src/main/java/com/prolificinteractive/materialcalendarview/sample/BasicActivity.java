@@ -37,6 +37,7 @@ public class BasicActivity extends AppCompatActivity
     widget.setOnDateChangedListener(this);
     widget.setOnDateLongClickListener(this);
     widget.setOnMonthChangedListener(this);
+    widget.setShowOtherDates(MaterialCalendarView.SHOW_OTHER_MONTHS);
 
     //Setup initial text
     textView.setText("No Selection");

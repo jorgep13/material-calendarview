@@ -386,6 +386,10 @@ public class MaterialCalendarView extends ViewGroup {
           R.styleable.MaterialCalendarView_mcv_dateTextAppearance,
           R.style.TextAppearance_MaterialCalendarWidget_Date
       ));
+      setWeekendTextAppearance(a.getResourceId(
+              R.styleable.MaterialCalendarView_mcv_dateTextAppearance,
+              R.style.TextAppearance_MaterialCalendarWidget_Date_Weekend
+      ));
       //noinspection ResourceType
       setShowOtherDates(a.getInteger(
           R.styleable.MaterialCalendarView_mcv_showOtherDates,
@@ -413,6 +417,7 @@ public class MaterialCalendarView extends ViewGroup {
       MonthView monthView = new MonthView(this, currentMonth, getFirstDayOfWeek(), true);
       monthView.setSelectionColor(getSelectionColor());
       monthView.setDateTextAppearance(adapter.getDateTextAppearance());
+      monthView.setWeekendDateTextAppearance(adapter.getWeekendDateTextAppearance());
       monthView.setWeekDayTextAppearance(adapter.getWeekDayTextAppearance());
       monthView.setShowOtherDates(getShowOtherDates());
       addView(monthView, new LayoutParams(calendarMode.visibleWeeksCount + DAY_NAMES_ROW));
@@ -741,6 +746,13 @@ public class MaterialCalendarView extends ViewGroup {
    */
   public void setDateTextAppearance(int resourceId) {
     adapter.setDateTextAppearance(resourceId);
+  }
+
+  /**
+   * @param resourceId The text appearance resource id.
+   */
+  public void setWeekendTextAppearance(int resourceId) {
+    adapter.setWeekendDateTextAppearance(resourceId);
   }
 
   /**
