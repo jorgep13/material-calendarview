@@ -17,10 +17,4 @@
     <item name="android:textSize">12sp</item>
   </style>
 
-  <style name="TextAppearance.MaterialCalendarWidget.Date.Weekend"
-         parent="android:TextAppearance.DeviceDefault.Small">
-    <item name="android:textSize">12sp</item>
-    <item name="android:textColor">@color/mvc_text_date_weekend</item>
-  </style>
-
 </resources>

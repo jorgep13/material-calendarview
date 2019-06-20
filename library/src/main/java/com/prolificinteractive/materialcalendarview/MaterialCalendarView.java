@@ -387,8 +387,8 @@ public class MaterialCalendarView extends ViewGroup {
           R.style.TextAppearance_MaterialCalendarWidget_Date
       ));
       setWeekendTextAppearance(a.getResourceId(
-              R.styleable.MaterialCalendarView_mcv_dateTextAppearance,
-              R.style.TextAppearance_MaterialCalendarWidget_Date_Weekend
+          R.styleable.MaterialCalendarView_mcv_weekendDateTextAppearance,
+          R.style.TextAppearance_MaterialCalendarWidget_Date
       ));
       //noinspection ResourceType
       setShowOtherDates(a.getInteger(
